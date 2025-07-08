@@ -4,56 +4,46 @@ import pandas as pd
 datos = pd.read_csv("PF_GRUPO.csv")
 
 # FILTRO POR CATEGORÍA
-print(" VENTAS AGRUPADAS POR CATEGORÍA")
+print("VENTAS AGRUPADAS POR CATEGORÍA")
 categorias = datos["Categoría"].unique()
 
 for cat in categorias:
-    print(f"Categoría: {cat}")
+    print(f"\nCategoría: {cat}")
     filtro_categoria = datos[datos["Categoría"] == cat]
     print(filtro_categoria)
-    print("-" * 40)
 
 # FILTRO POR FECHA
-print("VENTAS AGRUPADAS POR FECHA")
+print("\nVENTAS AGRUPADAS POR FECHA")
 fechas = datos["Fecha"].unique()
 
 for fecha in fechas:
-    print(f"Fecha: {fecha}")
+    print(f"\nFecha: {fecha}")
     filtro_fecha = datos[datos["Fecha"] == fecha]
     print(filtro_fecha)
-    print("-" * 40)
+
 
 # OPERACIONES DE AGREGACIÓN
 
-# suma las ventas por categoría 
-print("Total de unidades por CATEGORÍA:")
+# Suma de totales
+
+print("TOTAL DE UNIDADES VENDIDAS POR CATEGORÍA:")
 ventas_categoria = datos.groupby("Categoría")["Unidades vendidas"].sum()
-print(ventas_categoria)
-print("-" * 40)
+for cat, total in ventas_categoria.items():
+    print(f"El total de unidades vendidas de la categoría '{cat}' es: {total}")
 
-# suma las ventas por producto 
-print("Total de unidades por PRODUCTO:")
+print("TOTAL DE UNIDADES VENDIDAS POR PRODUCTO:")
 ventas_producto = datos.groupby("Producto")["Unidades vendidas"].sum()
-print(ventas_producto)
-print("-" * 40)
+for prod, total in ventas_producto.items():
+    print(f"El total de unidades vendidas del producto '{prod}' es: {total}")
 
-# Calcular total
-datos["Total"] = datos["Precio"] * datos["Unidades vendidas"]
+# Promedio
 
-# Total de ingresos por categoría
-print("Ingresos por CATEGORÍA:")
-ingresos_categoria = datos.groupby("Categoría")["Total"].sum()
-print(ingresos_categoria)
-print("-" * 40)
+print("PROMEDIO POR CATEGORÍA:")
+promedio_categoria = datos.groupby("Categoría")["Unidades vendidas"].mean()
+for cat, promedio in promedio_categoria.items():
+    print(f"El promedio de unidades vendidas en la categoría '{cat}' es: {promedio:.2f}")
 
-# Total de ingresos por producto
-print("Ingresos por PRODUCTO:")
-ingresos_producto = datos.groupby("Producto")["Total"].sum()
-print(ingresos_producto)
-print("-" * 40)
-
-
-# Promedio de unidades por categorías
-print("Promedio de unidades por categoría:")
-print(datos.groupby("Categoría")["Unidades vendidas"].mean())
-print("-" * 40)
+print("PROMEDIO  POR PRODUCTO:")
+promedio_producto = datos.groupby("Producto")["Unidades vendidas"].mean()
+for prod, promedio in promedio_producto.items():
+    print(f"El promedio de unidades vendidas del producto '{prod}' es: {promedio:.2f}")
