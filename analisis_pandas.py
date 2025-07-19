@@ -41,5 +41,3 @@ ventas_por_categoria = df.groupby("Categoría")["Total_Venta"].sum().sort_values
 print("\n--- Ventas totales por categoría ---")
 print(ventas_por_categoria)
 
-ventas_por_categoria.to_csv("ventas_por_categoria.csv")
-poco_vendidos.to_csv("productos_poco_vendidos.csv", index=False)
