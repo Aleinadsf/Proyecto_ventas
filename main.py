@@ -34,9 +34,11 @@ def generar_resultados(ventas):
     ventas_por_categoria(ventas)
 
     print("\nProductos en lista:")
+    print(f"{'Nombre del producto':<25} {'Total Venta (S/.)':>15}")
+    print("-" * 42)
     for producto in lista_productos[:5]:
-        print(f"{producto.nombre} - {producto.total_venta():.2f}")
-    
+        print(f"{producto.nombre:<25} {producto.total_venta():>15.2f}")
+
     return lista_productos
 
 if __name__ == "__main__":

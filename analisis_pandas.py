@@ -11,15 +11,15 @@ from producto import Producto
 def mostrar_estadisticas_generales(df):
     print("\n--- Estadísticas Generales ---")
     print("Total de productos vendidos:", df["Unidades vendidas"].sum())
-    print("Ingresos totales: $", df["Total_Venta"].sum())
-    print("Precio promedio de productos: $", df["Precio"].mean())
-    print("Producto más caro: $", df["Precio"].max())
-    print("Producto más barato: $", df["Precio"].min())
+    print("Ingresos totales: S/.", df["Total_Venta"].sum())
+    print("Precio promedio de productos: S/.", df["Precio"].mean())
+    print("Producto más caro: S/.", df["Precio"].max())
+    print("Producto más barato: S/.", df["Precio"].min())
 
-# Filtrar productos que generaron menos de $10 en ventas
+# Filtrar productos que generaron menos de S/.10 en ventas
 def filtrar_poco_vendidos(df):
     poco_vendidos = df[df["Total_Venta"] < 10]
-    print("\n--- Productos con ventas menores a $10 ---")
+    print("\n--- Productos con ventas menores a S/.10 ---")
     print(poco_vendidos[["Producto", "Total_Venta"]])
 
 
