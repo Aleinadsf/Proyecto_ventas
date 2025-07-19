@@ -1,5 +1,5 @@
 import pandas as pd
-
+from producto import Producto
 # df = pd.read_csv("PF_GRUPO.csv")
 # print(df.head())
 
@@ -62,3 +62,31 @@ def mostrar_ventas_por_categoria(df):
     ventas_por_categoria = df.groupby("Categoría")["Total_Venta"].sum().sort_values(ascending=False)
     print("\n--- Ventas totales por categoría ---")
     print(ventas_por_categoria)
+    
+# ---------Listas 
+def convertir_a_lista_productos(df):
+    lista_productos = []
+    for _, fila in df.iterrows():
+        producto = Producto(
+            id=fila["ID"],
+            nombre=fila["Producto"],
+            categoria=fila["Categoría"],
+            fecha=fila["Fecha"],
+            precio=fila["Precio"],
+            unidades=fila["Unidades vendidas"]
+        )
+        lista_productos.append(producto)
+    return lista_productos
+
+def contar_productos_por_categoria(lista_productos):
+    conteo = {}
+    for producto in lista_productos:
+        categoria = producto.categoria
+        if categoria in conteo:
+            conteo[categoria] += 1
+        else:
+            conteo[categoria] = 1
+
+    print("\n--- Cantidad de productos por categoría ---")
+    for categoria, cantidad in conteo.items():
+        print(f"{categoria}: {cantidad}")

@@ -8,7 +8,8 @@ from analisis_pandas import (
     ventas_por_categoria,
     filtrar_dulces_oct_dic,
     mostrar_ventas_por_categoria,
-    convertir_a_lista_productos
+    convertir_a_lista_productos,
+    contar_productos_por_categoria
 )
 # se crearon las funciones: para procesar los datos y otra para generar los resultados.
 def procesar_datos(ventas):
@@ -33,10 +34,13 @@ def generar_resultados(ventas):
     ventas_por_categoria(ventas)
 
     print("\nProductos en lista:")
-    for producto in lista_productos[:5]:  # Muestra solo los primeros 5
+    for producto in lista_productos[:5]:
         print(f"{producto.nombre} - {producto.total_venta():.2f}")
+    
+    return lista_productos
 
 if __name__ == "__main__":
     ventas = cargar_datos('PF_GRUPO.csv')
     ventas = procesar_datos(ventas)
-    generar_resultados(ventas)
+    lista_productos = generar_resultados(ventas)
+    contar_productos_por_categoria(lista_productos)
