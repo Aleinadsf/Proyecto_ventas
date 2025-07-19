@@ -1,15 +1,9 @@
 import pandas as pd
 from producto import Producto
-# df = pd.read_csv("PF_GRUPO.csv")
-# print(df.head())
-
-# df["Fecha"] = pd.to_datetime(df["Fecha"])
-# df["Total_Venta"] = df["Precio"] * df["Unidades vendidas"]
 
 # ------se convirtio en funciones
 # Estadísticas generales - Agregación
 def mostrar_estadisticas_generales(df):
-    print("\n--- Estadísticas Generales ---")
     print("Total de productos vendidos:", df["Unidades vendidas"].sum())
     print("Ingresos totales: S/.", df["Total_Venta"].sum())
     print("Precio promedio de productos: S/.", df["Precio"].mean())
@@ -29,11 +23,6 @@ def filtrar_por_fecha(df, mes, anio):
     print(f"\nVentas en {mes:02}/{anio}:")
     print(filtrado[["Fecha", "Producto", "Categoría", "Unidades vendidas", "Total_Venta"]])
     
-    # agosto_2025 = df[df["Fecha"].dt.month == 8]
-    # print("\nVentas en AGOSTO de 2025:")
-    # print(agosto_2025[["Fecha", "Producto", "Categoría", "Unidades vendidas", "Total_Venta"]])
-
-
 # Filtrar las categoría de producto
 def ventas_por_categoria(df):
     totales = df.groupby("Categoría")["Total_Venta"].sum().sort_values(ascending=False)
@@ -49,13 +38,6 @@ def filtrar_dulces_oct_dic(df):
     print("\n------Ventas de DULCES entre OCT-DIC 2025-------")
     print(dulces_oct_dic[["Fecha", "Producto", "Unidades vendidas", "Total_Venta"]])
 
-# dulces_oct_dic = df[
-#     (df["Categoría"] == "Dulces") &
-#     (df["Fecha"] >= "2025-10-01") &
-#     (df["Fecha"] <= "2025-12-31")
-# ]
-# print("\nVentas de DULCES entre OCT-DIC 2025:")
-# print(dulces_oct_dic[["Fecha", "Producto", "Unidades vendidas", "Total_Venta"]])
 # Mostrar resumen total por categoría
 # Agrupar
 def mostrar_ventas_por_categoria(df):

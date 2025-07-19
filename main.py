@@ -22,24 +22,48 @@ def generar_resultados(ventas):
     estadisticas = calcular_estadisticas(ventas_np)
     lista_productos = convertir_a_lista_productos(ventas)
 
-    print("\n-----------ANÁLISIS ESTADÍSTICOS DE LAS VENTAS---------------")
+    print("\n" + "="*60)
+    print("🔍 ANÁLISIS ESTADÍSTICOS DE LAS VENTAS".center(60))
+    print("="*60)
     for clave, valor in estadisticas.items():
-        print(f"{clave.capitalize()}: {valor:.2f}")
-
+        print(f"{clave.capitalize():<20}: {valor:.2f}")
+    
+    print("\n" + "="*60)
+    print("📊 ESTADÍSTICAS GENERALES".center(60))
+    print("="*60)
     mostrar_estadisticas_generales(ventas)
+
+    print("\n" + "="*60)
+    print("📉 PRODUCTOS CON VENTAS < $10".center(60))
+    print("="*60)
     filtrar_poco_vendidos(ventas)
+
+    print("\n" + "="*60)
+    print("📅 VENTAS DE AGOSTO 2025".center(60))
+    print("="*60)
     filtrar_por_fecha(ventas, mes=8, anio=2025)
+
+    print("\n" + "="*60)
+    print("🍬 DULCES VENDIDOS EN OCT-DIC 2025".center(60))
+    print("="*60)
     filtrar_dulces_oct_dic(ventas)
+
+    print("\n" + "="*60)
+    print("📂 VENTAS POR CATEGORÍA".center(60))
+    print("="*60)
     mostrar_ventas_por_categoria(ventas)
     ventas_por_categoria(ventas)
 
-    print("\nProductos en lista:")
-    print(f"{'Nombre del producto':<25} {'Total Venta (S/.)':>15}")
-    print("-" * 42)
-    for producto in lista_productos[:5]:
-        print(f"{producto.nombre:<25} {producto.total_venta():>15.2f}")
+    print("\n" + "="*60)
+    print("🛒 PRODUCTOS EN LISTA".center(60))
+    print("="*60)
+    print(f"{'Nombre del producto':<25} {'Precio':>10} {'Unidades':>10} {'Total Venta ($)':>17}")
+    print("-" * 65)
+    for producto in lista_productos[:5]:  # Muestra solo los primeros 5 productos
+        print(f"{producto.nombre:<25} {producto.precio:>10.2f} {producto.unidades:>10} {producto.total_venta():>17.2f}")
 
     return lista_productos
+
 
 if __name__ == "__main__":
     ventas = cargar_datos('PF_GRUPO.csv')
