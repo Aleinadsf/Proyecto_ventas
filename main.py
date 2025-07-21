@@ -10,8 +10,6 @@ from analisis_pandas import (
     mostrar_ventas_por_categoria,
     convertir_a_lista_productos,
     contar_productos_por_categoria,
-    graficar_ventas_en_el_tiempo,
-    graficar_participacion_por_categoria,
     graficar_ventas_por_categoria,
     graficar_ventas_por_fecha,
     graficar_dulces_oct_dic,
