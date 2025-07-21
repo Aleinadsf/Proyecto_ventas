@@ -16,44 +16,44 @@ def procesar_datos(ventas):
     ventas = limpiar_datos(ventas)
     ventas["Fecha"] = pd.to_datetime(ventas["Fecha"])
     return ventas
-
+#Generacion de resultados: se calcula las estadisticas, se convierte a lista de productos y se muestran los resultados.
 def generar_resultados(ventas):
     ventas_np = ventas['Total_Venta'].to_numpy()
     estadisticas = calcular_estadisticas(ventas_np)
     lista_productos = convertir_a_lista_productos(ventas)
-
+# Se muestran los resultados de las estadisticas y los productos.
     print("\n" + "="*60)
     print("🔍 ANÁLISIS ESTADÍSTICOS DE LAS VENTAS".center(60))
     print("="*60)
     for clave, valor in estadisticas.items():
         print(f"{clave.capitalize():<20}: {valor:.2f}")
-    
+#Estadisticas generales con panda: se muestran las estadisticas generales, los productos con ventas menores a 10, las ventas de agosto 2025, los dulces vendidos en oct-dic 2025, las ventas por categoria y los productos en lista.
     print("\n" + "="*60)
     print("📊 ESTADÍSTICAS GENERALES".center(60))
     print("="*60)
     mostrar_estadisticas_generales(ventas)
-
+#Productos con ventas menores a 10: se filtran los productos con ventas menores a
     print("\n" + "="*60)
     print("📉 PRODUCTOS CON VENTAS < $10".center(60))
     print("="*60)
     filtrar_poco_vendidos(ventas)
-
+#Ventas por fecha: se filtran las ventas de agosto 2025.
     print("\n" + "="*60)
     print("📅 VENTAS DE AGOSTO 2025".center(60))
     print("="*60)
     filtrar_por_fecha(ventas, mes=8, anio=2025)
-
+#Filtrar dulces vendidos en oct-dic 2025: se filtran los dulces vendidos en octubre a diciembre de 2025.
     print("\n" + "="*60)
     print("🍬 DULCES VENDIDOS EN OCT-DIC 2025".center(60))
     print("="*60)
     filtrar_dulces_oct_dic(ventas)
-
+#Ventas por categoría: se muestran las ventas por categoría y se muestran los productos en lista.
     print("\n" + "="*60)
     print("📂 VENTAS POR CATEGORÍA".center(60))
     print("="*60)
     mostrar_ventas_por_categoria(ventas)
     ventas_por_categoria(ventas)
-
+#Mostrar lista de productos con sus detalles: se convierte a lista de productos y se muestran los primeros 5 productos.
     print("\n" + "="*60)
     print("🛒 PRODUCTOS EN LISTA".center(60))
     print("="*60)
@@ -68,5 +68,20 @@ def generar_resultados(ventas):
 if __name__ == "__main__":
     ventas = cargar_datos('PF_GRUPO.csv')
     ventas = procesar_datos(ventas)
+
+    # Mostrar tuplas (categorías y fechas únicas)
+    categorias_unicas = tuple(ventas["Categoría"].unique())
+    fechas_unicas = tuple(ventas["Fecha"].dt.date.unique())
+
+    print("\n" + "="*60)
+    print("📂 CATEGORÍAS DISPONIBLES (Tupla)".center(60))
+    print("="*60)
+    print(categorias_unicas)
+
+    print("\n" + "="*60)
+    print("📅 FECHAS REGISTRADAS (Tupla)".center(60))
+    print("="*60)
+    print(fechas_unicas)
+
     lista_productos = generar_resultados(ventas)
     contar_productos_por_categoria(lista_productos)
