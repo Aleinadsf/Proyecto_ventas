@@ -9,7 +9,12 @@ from analisis_pandas import (
     filtrar_dulces_oct_dic,
     mostrar_ventas_por_categoria,
     convertir_a_lista_productos,
-    contar_productos_por_categoria
+    contar_productos_por_categoria,
+    graficar_ventas_en_el_tiempo,
+    graficar_participacion_por_categoria,
+    graficar_ventas_por_categoria,
+    graficar_ventas_por_fecha,
+    graficar_dulces_oct_dic,
 )
 # se crearon las funciones: para procesar los datos y otra para generar los resultados.
 def procesar_datos(ventas):
@@ -42,17 +47,20 @@ def generar_resultados(ventas):
     print("📅 VENTAS DE AGOSTO 2025".center(60))
     print("="*60)
     filtrar_por_fecha(ventas, mes=8, anio=2025)
+    graficar_ventas_por_fecha(ventas, mes=8, anio=2025) 
 #Filtrar dulces vendidos en oct-dic 2025: se filtran los dulces vendidos en octubre a diciembre de 2025.
     print("\n" + "="*60)
     print("🍬 DULCES VENDIDOS EN OCT-DIC 2025".center(60))
     print("="*60)
     filtrar_dulces_oct_dic(ventas)
+    graficar_dulces_oct_dic(ventas)
 #Ventas por categoría: se muestran las ventas por categoría y se muestran los productos en lista.
     print("\n" + "="*60)
     print("📂 VENTAS POR CATEGORÍA".center(60))
     print("="*60)
     mostrar_ventas_por_categoria(ventas)
     ventas_por_categoria(ventas)
+    graficar_ventas_por_categoria(ventas)
 #Mostrar lista de productos con sus detalles: se convierte a lista de productos y se muestran los primeros 5 productos.
     print("\n" + "="*60)
     print("🛒 PRODUCTOS EN LISTA".center(60))
@@ -81,7 +89,9 @@ if __name__ == "__main__":
     print("\n" + "="*60)
     print("📅 FECHAS REGISTRADAS (Tupla)".center(60))
     print("="*60)
-    print(fechas_unicas)
+    fechas_formateadas = [fecha.strftime('%d/%m/%Y') for fecha in fechas_unicas]
+    print(", ".join(fechas_formateadas))
+
 
     lista_productos = generar_resultados(ventas)
     contar_productos_por_categoria(lista_productos)
