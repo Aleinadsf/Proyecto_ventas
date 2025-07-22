@@ -5,12 +5,12 @@
 
 Este proyecto consiste en el diseño de un programa en **Python** que analiza un conjunto de datos simulados de ventas en una pastelería. El programa permite:
 
-✔ Cargar los datos desde un archivo **CSV**.
-✔ Filtrar ventas por fecha o categoría.
-✔ Calcular estadísticas generales con **Pandas** y análisis estadístico con **NumPy**.
-✔ Mostrar los resultados de manera organizada en consola.
-✔ Convertir los datos en **objetos** mediante una clase `Producto`.
-✔ Utilizar estructuras de datos como **listas, tuplas y diccionarios**.
+- Cargar los datos desde un archivo **CSV**.
+- Filtrar ventas por fecha o categoría.
+- Calcular estadísticas generales con **Pandas** y análisis estadístico con **NumPy**.
+- Mostrar los resultados de manera organizada en consola.
+- Convertir los datos en **objetos** mediante una clase `Producto`.
+- Utilizar estructuras de datos como **listas, tuplas y diccionarios**.
 
 Este proyecto cumple con los requerimientos de:
 
@@ -94,17 +94,17 @@ Desde la raíz del proyecto, ejecuta:
 
 
 ============================================================
-📂 CATEGORÍAS DISPONIBLES (Tupla)
+ CATEGORÍAS DISPONIBLES (Tupla)
 ============================================================
 ('Dulces', 'Bebidas', 'Pasteles', 'Galletas')
 
 ============================================================
-📅 FECHAS REGISTRADAS (Tupla)
+ FECHAS REGISTRADAS (Tupla)
 ============================================================
 (datetime.date(2025, 8, 1), datetime.date(2025, 8, 15), ...)
 
 ============================================================
-🔍 ANÁLISIS ESTADÍSTICOS DE LAS VENTAS
+ ANÁLISIS ESTADÍSTICOS DE LAS VENTAS
 ============================================================
 Promedio            : 27.35
 Desviacion_estandar : 15.42
@@ -115,11 +115,12 @@ Maximo              : 120.00
 ...
 
 
-## 👨‍💻 Autores
+## Autores
 
 Moreno Medina, Krystel Victoria - U22214055
 Suarez Franklin, Daniela Nayeli - U22215095
 Aquijes Rivera, Maricielo Victoria - U22229709
+Ramon Gomez, Hector Bryan - U22104171
 
 
 * Curso: Lenguaje de programacion
