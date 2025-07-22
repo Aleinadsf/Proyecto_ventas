@@ -72,7 +72,7 @@ def generar_resultados(ventas):
 
 
 if __name__ == "__main__":
-    ventas = cargar_datos('PF_GRUPO.csv')
+    ventas = cargar_datos('PF_GRUPO_01.csv')
     ventas = procesar_datos(ventas)
 
     # Mostrar tuplas (categorías y fechas únicas)
