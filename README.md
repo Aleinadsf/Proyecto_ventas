@@ -26,6 +26,7 @@ Este proyecto cumple con los requerimientos de:
 
 Proyecto_ventas/
 │
+
 ├── PF_GRUPO.csv             
 ├── main.py                  
 ├── producto.py              
