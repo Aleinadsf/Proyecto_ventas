@@ -25,7 +25,7 @@ Este proyecto cumple con los requerimientos de:
 ## Estructura del proyecto
 
 Proyecto_ventas/
-│
+
 
 ├── PF_GRUPO.csv             
 ├── main.py                  
