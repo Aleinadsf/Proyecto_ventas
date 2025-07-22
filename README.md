@@ -26,7 +26,6 @@ Este proyecto cumple con los requerimientos de:
 
 Proyecto_ventas/
 
-
 ├── PF_GRUPO.csv             
 ├── main.py                  
 ├── producto.py              
@@ -46,10 +45,12 @@ Asegúrate de tener instalado:
 * Librerías externas:
   * `pandas`
   * `numpy`
+  * `matplotlib`
+  * `seaborn`
 
 Instala las dependencias con:
 
-- pip install pandas numpy
+- pip install pandas numpy matplotlib seaborn
 
 ## **Ejecución del programa**
 
