@@ -50,7 +50,7 @@ Instala las dependencias con:
 
 - pip install pandas numpy
 
-## ▶ **Ejecución del programa**
+## **Ejecución del programa**
 
 Desde la raíz del proyecto, ejecuta:
 
