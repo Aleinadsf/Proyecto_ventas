@@ -90,7 +90,7 @@ Desde la raíz del proyecto, ejecuta:
    * **Diccionarios** → Conteo de productos por categoría.
 
 
-## 🧾 Ejemplo de salida en consola
+## Ejemplo de salida en consola
 
 
 ============================================================
@@ -124,6 +124,7 @@ Ramon Gomez, Hector Bryan - U22104171
 
 
 * Curso: Lenguaje de programacion
+* Docente: Jhon Paul Anampa Garcia
 * Fecha: Julio,2025
 
 
